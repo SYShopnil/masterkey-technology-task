@@ -34,8 +34,10 @@ export const CPartitionLayout = () => {
         <CPartition
           key={partition.id}
           color={partition.color}
-          onSplit={(direction) => handleSplit(partition.id, direction)}
+          onSplit={(_, direction) => handleSplit(partition.id, direction)}
           onRemove={() => handleRemove(partition.id)}
+          id={0}
+          style={{}}
         />
       ))}
     </div>

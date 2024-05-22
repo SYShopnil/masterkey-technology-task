@@ -1,10 +1,16 @@
 import React from "react";
 import { SIconStore } from "../_icon";
-import { IRIconWithMessage } from "@src/types/root/s-icon-with-message";
 import Link from "next/link";
 import { EDataTestId } from "@src/types/common";
+import { IconEnums } from "@src/types/root";
 
-export const SIconWithMessage = ({ icon, message }: IRIconWithMessage) => {
+export const SIconWithMessage = ({
+  icon,
+  message,
+}: {
+  icon: IconEnums;
+  message: string;
+}) => {
   return (
     <div
       className={`h-[60vh] flex justify-center items-center space-x-2`}

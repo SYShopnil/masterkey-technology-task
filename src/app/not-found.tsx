@@ -7,7 +7,6 @@ export default function NotFound() {
       <SIconWithMessage
         message="Page Not Found!!!"
         icon={IconName.TbError404}
-        url="/"
       />
     </div>
   );
