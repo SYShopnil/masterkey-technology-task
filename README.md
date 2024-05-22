@@ -37,9 +37,6 @@
 
   <img src = "public/doc/demo/alphabetTwo.png">
 
-- **View individual text element details**
-  <img src = "public/doc/demo/read_text_element.png">
-
 ## Run Locally
 
 Clone the project
