@@ -6,33 +6,36 @@
 
 **Test**: Jest
 
-**Documentation**: Lucidchart
-
 ## Demo
 
-- **Login page**
-  <img src = "public/doc/demo/loginFormPage.png"  >
+- **One(1x1)**
+  <img src = "public/doc/demo/1x1.png"  >
 
-- **Profile page of User**
-  <img src = "public/doc/demo/my_profile.png"  >
+- **Two(1x2)**
+  <img src = "public/doc/demo/1x2.png"  >
 
-- **Show All Text Card**
-  <img src = "public/doc/demo/my_text_card.png"  >
+- **Three(1x4)**
+  <img src = "public/doc/demo/1x4.png"  >
 
-- **Add New Text**
-  <img src = "public/doc/demo/create_new_text.png"  >
+- **Four(Alphabet)**
 
-- **Update existing card element with add new or delete also**
+```
+  Activity
+    AAA => ___ and then B become B => ___B
+
+```
+
+  <img src = "public/doc/demo/alphabetOne.png"  >
+
+- **Five(Alphabet)**
 
 ```
   Use Cases
-    1. User can update exist element only.
-    2. User can update existing one and add more element also.
-    3. User can deleted existing one and also can update remains element.
+    AAABABCCCD => ___BAB___D
 
 ```
 
-  <img src = "public/doc/demo/update_text_element.png">
+  <img src = "public/doc/demo/alphabetTwo.png">
 
 - **View individual text element details**
   <img src = "public/doc/demo/read_text_element.png">
@@ -42,26 +45,20 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/SYShopnil/Maliha-poly-tex-fiber-industry-limited-task-client.git
+  git clone https://github.com/SYShopnil/masterkey-technology-task.git
 ```
 
 Go to the project directory
 
 ```bash
   cd
-  Maliha-poly-tex-fiber-industry-limited-task-client
+  masterkey-technology-task
 ```
 
 Install dependencies
 
 ```bash
   npm install || npm i
-```
-
-Get .ENV file
-
-```bash
-  cp .env.example .env
 ```
 
 Start the server
@@ -75,11 +72,6 @@ Start the Test
 ```bash
   npm run test
 ```
-
-## Test User
-
-- email: johndoe@gmail.com
-- password: 123456789John@
 
 ## Support
 
