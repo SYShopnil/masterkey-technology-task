@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When Alphabet Grid Layout Component Rendered Expect render successfully 1`] = `
+<div
+  class="grid grid-cols-6 gap-2 p-4"
+  role="CAlphabetGrid"
+>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    A
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    B
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    C
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    D
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    E
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    F
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    G
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    H
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    I
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    J
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    K
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    L
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    M
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    N
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    O
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    P
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    Q
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    R
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    S
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    T
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    U
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    V
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    W
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    X
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    Y
+  </div>
+  <div
+    class="flex items-center justify-center w-12 h-12 m-1 text-2xl font-bold bg-blue-500 text-white cursor-pointer"
+  >
+    Z
+  </div>
+</div>
+`;

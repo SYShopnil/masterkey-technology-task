@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When Partition Component Rendered Expect render successfully 1`] = `
+<div
+  class="relative border"
+  role="CPartition"
+  style="padding: 25px;"
+>
+  <div
+    class="absolute inset-0 flex items-center justify-center space-x-2"
+  >
+    <button
+      class="px-2 py-1 bg-white border rounded"
+    >
+      V
+    </button>
+    <button
+      class="px-2 py-1 bg-white border rounded"
+    >
+      H
+    </button>
+    <button
+      class="px-2 py-1 bg-white border rounded"
+    >
+      X
+    </button>
+  </div>
+  <div
+    class="absolute bottom-0 right-0 w-4 h-4 bg-gray-400 cursor-se-resize"
+  />
+</div>
+`;

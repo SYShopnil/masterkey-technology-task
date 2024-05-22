@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { CAlphabetGrid } from "../c-alphabet-grid";
+import { EDataTestId } from "@src/types/common";
 
 export const CAlphabetApp = () => {
   const [outputString, setOutputString] = useState("");
@@ -17,7 +18,7 @@ export const CAlphabetApp = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4" role={EDataTestId.CAlphabetApp}>
       <div>
         <h1 className="text-center text-2xl font-bold pb-2">
           Alphabet Tile Interaction

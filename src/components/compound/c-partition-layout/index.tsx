@@ -1,26 +1,52 @@
 "use client";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { CPartition } from "../c-partition";
+import { EDataTestId } from "@src/types/common";
 
-export const CPartitionLayout = () => {
-  const [partitions, setPartitions] = useState([
-    { id: 1, color: getRandomColor(), split: false },
+interface PartitionData {
+  id: number;
+  color: string;
+  style: React.CSSProperties;
+}
+
+const CLayout = () => {
+  const [partitions, setPartitions] = useState<PartitionData[]>([
+    {
+      id: 1,
+      color: generateRandomColor(),
+      style: {
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        top: "0",
+        left: "0",
+      },
+    },
   ]);
 
   const handleSplit = (id: number, direction: "V" | "H") => {
     setPartitions((prev) => {
-      const partition = prev.find((p) => p.id === id);
-      if (partition) {
-        const newPartition = {
-          id: prev.length + 1,
-          color: getRandomColor(),
-          split: false,
-        };
-        partition.split = true;
-        return [...prev, newPartition];
+      const index = prev.findIndex((p) => p.id === id);
+      if (index === -1) return prev;
+
+      const partition = prev[index];
+      const newPartition = {
+        id: prev.length + 1,
+        color: generateRandomColor(),
+        style: { ...partition.style },
+      };
+
+      if (direction === "V") {
+        partition.style.width = "50%";
+        newPartition.style.width = "50%";
+        newPartition.style.left = "50%";
+      } else {
+        partition.style.height = "50%";
+        newPartition.style.height = "50%";
+        newPartition.style.top = "50%";
       }
-      return prev;
+
+      return [...prev, newPartition];
     });
   };
 
@@ -29,21 +55,24 @@ export const CPartitionLayout = () => {
   };
 
   return (
-    <div className="relative w-full h-screen">
-      {partitions.map((partition, index) => (
+    <div className="relative w-full h-screen" role={EDataTestId.CLayout}>
+      {partitions.map((partition) => (
         <CPartition
           key={partition.id}
+          id={partition.id}
           color={partition.color}
-          onSplit={(_, direction) => handleSplit(partition.id, direction)}
-          onRemove={() => handleRemove(partition.id)}
-          id={0}
-          style={{}}
+          onSplit={handleSplit}
+          onRemove={handleRemove}
+          style={partition.style}
         />
       ))}
     </div>
   );
 };
 
-function getRandomColor() {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+function generateRandomColor() {
+  const color = "#" + Math.floor(Math.random() * 1677215).toString(16);
+  return color;
 }
+
+export default CLayout;

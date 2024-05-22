@@ -8,16 +8,17 @@ interface IPartitionData {
   style: React.CSSProperties;
 }
 
-export const CLayout = () => {
+const CLayout = () => {
   const [partitions, setPartitions] = useState<IPartitionData[]>([
     {
       id: 1,
       color: getRandomColor(),
+
       style: { width: "800px", height: "250px", position: "relative" },
     },
   ]);
 
-  const handleSplit = (id: number, direction: "V" | "H") => {
+  const handleOfSplit = (id: number, direction: "V" | "H") => {
     setPartitions((prev) => {
       const index = prev.findIndex((p) => p.id === id);
       if (index === -1) return prev;
@@ -72,7 +73,7 @@ export const CLayout = () => {
             key={partition.id}
             id={partition.id}
             color={partition.color}
-            onSplit={handleSplit}
+            onSplit={handleOfSplit}
             onRemove={handleRemove}
             style={partition.style}
           />
@@ -85,3 +86,5 @@ export const CLayout = () => {
 function getRandomColor() {
   return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
+
+export default CLayout;

@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { ResizableBox, ResizeCallbackData } from "react-resizable";
-import "react-resizable/css/styles.css";
 
-interface PartitionProps {
+import { EDataTestId } from "@src/types/common";
+import { useEffect, useState } from "react";
+
+export interface PartitionProps {
   id: number;
   color: string;
   onSplit: (id: number, direction: "V" | "H") => void;
@@ -12,7 +12,7 @@ interface PartitionProps {
 }
 
 const snapToGrid = (value: number, total: number) => {
-  const ratios = [0.25, 0.5, 0.75];
+  const ratios = [0.25, 0.5, 0.75, 1];
   const closestRatio = ratios.reduce((prev, curr) =>
     Math.abs(curr * total - value) < Math.abs(prev * total - value)
       ? curr
@@ -21,59 +21,62 @@ const snapToGrid = (value: number, total: number) => {
   return closestRatio * total;
 };
 
-export const CPartition: React.FC<PartitionProps> = ({
+export const CPartition = ({
   id,
   color,
   onSplit,
   onRemove,
   style,
-}) => {
-  const [dimensions, setDimensions] = useState({
-    width: typeof window !== "undefined" ? window.innerWidth : 100,
-    height: typeof window !== "undefined" ? window.innerHeight : 100,
+}: PartitionProps) => {
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const [currentSize, setCurrentSize] = useState({
+    width: style.width as string,
+    height: style.height as string,
   });
 
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleResize = (
-    e: React.SyntheticEvent,
-    { size }: ResizeCallbackData
-  ) => {
-    const snappedWidth = snapToGrid(size.width, dimensions.width);
-    const snappedHeight = snapToGrid(size.height, dimensions.height);
-    e.preventDefault();
-
-    // Update the size state to snapped values
-    const updatedStyle = {
-      ...style,
-      width: `${snappedWidth}px`,
-      height: `${snappedHeight}px`,
-    };
-
-    style.width = updatedStyle.width;
-    style.height = updatedStyle.height;
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartPos({ x: e.clientX, y: e.clientY });
   };
 
+  const handleMouseMove = (e: MouseEvent) => {
+    if (isDragging) {
+      const dx = e.clientX - startPos.x;
+      const dy = e.clientY - startPos.y;
+      const newWidth = snapToGrid(
+        parseInt(currentSize.width) + dx,
+        window.innerWidth
+      );
+      const newHeight = snapToGrid(
+        parseInt(currentSize.height) + dy,
+        window.innerHeight
+      );
+      setCurrentSize({ width: `${newWidth}px`, height: `${newHeight}px` });
+      style.width = `${newWidth}px`;
+      style.height = `${newHeight}px`;
+      setStartPos({ x: e.clientX, y: e.clientY });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging]);
+
   return (
-    <ResizableBox
-      className="relative border"
-      width={parseInt(style.width as string)}
-      height={parseInt(style.height as string)}
-      minConstraints={[100, 100]}
-      maxConstraints={[dimensions.width, dimensions.height]}
-      resizeHandles={["e", "w", "n", "s", "se", "sw", "ne", "nw"]}
-      onResizeStop={handleResize}
+    <div
       style={{ ...style, backgroundColor: color }}
+      className="relative border"
+      role={EDataTestId.CPartition}
     >
       <div className="absolute inset-0 flex items-center justify-center space-x-2">
         <button
@@ -95,6 +98,10 @@ export const CPartition: React.FC<PartitionProps> = ({
           X
         </button>
       </div>
-    </ResizableBox>
+      <div
+        className="absolute bottom-0 right-0 w-4 h-4 bg-gray-400 cursor-se-resize"
+        onMouseDown={handleMouseDown}
+      ></div>
+    </div>
   );
 };
